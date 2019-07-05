@@ -7,10 +7,13 @@
   <title>Document</title>
   <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
   <style>
+    body {
+      background-image: url('../img/p/bg.jpg')
+    }
     #container {
-      width: 200px;
+      width: 129px;
       margin: 0 auto 0 auto;
-      perspective:620px;
+      perspective:400px;
     }
     #box {
       transform-style: preserve-3d;
@@ -18,8 +21,8 @@
     }
     #box div {
       position: absolute;
-      width: 200px;
-      height: 700px;
+      width: 129px;
+      height: 1170px;
     }
   </style>
 </head>
@@ -37,6 +40,16 @@
         <div>8</div>
         <div>9</div>
         <div>10</div>
+        <div>11</div>
+        <div>12</div>
+        <div>13</div>
+        <div>14</div>
+        <div>15</div>
+        <div>16</div>
+        <div>17</div>
+        <div>18</div>
+        <div>19</div>
+        <div>20</div>
       </div>
     </div>
   </div>
@@ -44,10 +57,10 @@
     var container = document.getElementById('container')
     var box = document.getElementById('box')
     var arr = box.getElementsByTagName('div')
-    var radius = calulateRadius(200, 10)
+    var radius = calulateRadius(129, 20)
 
     for (var i = 0; i<arr.length;i++) {
-      arr[i].style.background = 'url("./img/' + (i + 1) + '.jpg") no-repeat'
+      arr[i].style.background = 'url("./img/p/p' + (i + 1) + '.png") no-repeat'
       arr[i].style.WebkitTransform = "rotateY(" + 360 / arr.length * i + 'deg) translatez(' + radius + 'px)'
     }
      function calulateRadius (length, totalNum) {

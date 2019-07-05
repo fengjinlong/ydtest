@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .con{
+      width: 200px;
+      height: 200px;
+      margin: 50px;
+      animation: ani 5s ease-in-out infinite;
+      transform-origin: 100px 100px 0;
+      transform-style: preserve-3d
+    }
+    .con div {
+      width: 200px;
+      height: 200px;
+      line-height: 200px;
+      background: rgba(1,1,1,.2);
+      position: absolute;
+      border: 2px solid #666;
+      font-size: 100px;
+      text-align: center;
+    }
+    .d1 {
+      transform: translateZ(100px)
+    }
+    .d2 {
+      transform: rotateX(90deg) translateZ(100px)
+    }
+    .d3 {
+      transform:  rotateX(180deg) translateZ(100px)
+    }
+    .d4 {
+      transform: rotateX(-90deg) translateZ(100px)
+    }
+    .d5 {
+      transform: rotateX(90deg) rotateY(90deg) translateZ(100px)
+    }
+    .d6 {
+      transform: rotateX(-90deg) rotateY(-90deg) translateZ(100px)
+    }
+    @keyframes ani {
+      from, to {}
+      0% {transform: rotateY(0deg);}
+      20% {transform: rotateY(-90deg) rotateZ(135deg);}
+      40% {transform: rotateY(90deg) rotateZ(135deg)}
+      60% {transform: rotateY(225deg) rotateZ(135deg);}
+      80% {transform: rotateY(135deg) rotateX(165deg);}
+      100% {transform: rotateX(0deg);}
+    }
+  </style>
+</head>
+<body>
+  <div class="con">
+    <div class="d1">1</div>
+    <div class="d2">2</div>
+    <div class="d3">3</div>
+    <div class="d4">4</div>
+    <div class="d5">5</div>
+    <div class="d6">6</div>
+  </div>
+</body>
+</html>
