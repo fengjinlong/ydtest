@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.min.js"></script>
+  <style>
+    #container {
+      width: 200px;
+      margin: 0 auto 0 auto;
+      perspective:620px;
+    }
+    #box {
+      transform-style: preserve-3d;
+      transform-origin: 50% 50%;
+    }
+    #box div {
+      position: absolute;
+      width: 200px;
+      height: 700px;
+    }
+  </style>
+</head>
+<body>
+  <div id='laba' style="z-index: 999">
+    <div id="container" class="container">
+      <div id="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var container = document.getElementById('container')
+    var box = document.getElementById('box')
+    var arr = box.getElementsByTagName('div')
+    var radius = calulateRadius(200, 10)
+
+    for (var i = 0; i<arr.length;i++) {
+      arr[i].style.background = 'url("./img/' + (i + 1) + '.jpg") no-repeat'
+      arr[i].style.WebkitTransform = "rotateY(" + 360 / arr.length * i + 'deg) translatez(' + radius + 'px)'
+    }
+     function calulateRadius (length, totalNum) {
+       return Math.round(length / (2 * Math.tan(Math.PI / totalNum))) - 3
+     }
+
+     var startX = 0,
+     x = 0,
+     endX = 0;
+     var flag = true;
+     $('#box').on('touchstart', function (event) {
+       event.preventDefault()
+       var touch = event.targetTouches[0]
+       startX = touch.pageX - x
+     })
+     $('#box').on('touchmove', function (event) {
+       if (flag) {
+         event.preventDefault()
+         var touch = event.targetTouches[0]
+         endX = touch.pageX
+         x = endX - startX
+         box.style.transform = 'rotateY(' + x + 'deg)'
+       } else {
+         return false
+       }
+     })
+
+  </script>
+</body>
+</html>
